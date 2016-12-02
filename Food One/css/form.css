@@ -2,6 +2,8 @@ h1 {
     text-align: center;
     background-color: #e2575e;
     color: #fdfdfd;
+    font-family: 'Oxygen', sans-serif;
+    padding: 10px;
 }
 
 form{
