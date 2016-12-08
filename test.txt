@@ -1,1 +1,1 @@
-If you are reading this, the dev branch automatically deploys every push.
+If you are reading this, the dev branch automatically deploys every push. Yay!
