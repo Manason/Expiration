@@ -7,6 +7,17 @@
     <!-- If IE use the latest rendering engine -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <link href="css/calendarview.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="prototype.js"></script>
+    <script type="text/javascript" src="calendarview.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            Calendar.setup({
+                dateField     : 'date',
+                parentElement : 'calendar'
+            })
+        }
+    </script>
     <!-- Title of website -->
     <title>Test Title</title>
 </head>
@@ -15,31 +26,20 @@
     <!-- Title -->
    <h1>Name Here!</h1>
 
-	<!-- This is Noah's test-->
-
-   <!-- THis is a test for us -->
-
-   <!-- This is where to put server link -->
    <form action="fill_db.php", method="post">
       <!-- for the food -->
-      <label>Food:
-          <input type="text" size="21" maxlength="30" name="food"><br />
-      </label>
-
-      <!-- break -->
+      Food: <input type="text" size="21" maxlength="30" name="food"><br />
       <br />
 
-      <!-- for the expiration -->
-      <label>Expiration:
-          <input type="date" size="24" name="expiration"></label><br>
-      </label>
-
-      <!-- break -->
+      Expiration: <input type="date" size="24" name="expiration"></label><br>
       <br />
 
-      <!-- Send the form -->
       <input type="submit" name="submit" value="Submit"/>
    </form>
+   <!-- calendar -->
+<div id="calendar"></div>
+<div id="date">Select Date</div>
+
     <?php
 if(file_exists('db-config.php')){
 	require_once 'db-config.php';
