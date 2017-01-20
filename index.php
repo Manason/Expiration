@@ -7,6 +7,7 @@
     <!-- If IE use the latest rendering engine -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
+    <!-- calendar scripts -->
     <link href="css/calendarview.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="prototype.js"></script>
     <script type="text/javascript" src="calendarview.js"></script>
@@ -18,6 +19,7 @@
             })
         }
     </script>
+    <!-- end calendar scripts -->
     <!-- Title of website -->
     <title>Test Title</title>
 </head>
@@ -36,45 +38,46 @@
 
       <input type="submit" name="submit" value="Submit"/>
    </form>
+
    <!-- calendar -->
 <div id="calendar"></div>
 <div id="date">Select Date</div>
 
-    <?php
-if(file_exists('db-config.php')){
-	require_once 'db-config.php';
-}
-else{
-	die("Error: db-config.php not found");
-}
-$servername = SERVER_NAME;
-$username = USERNAME;
-$password = PASSWORD;
-$dbname = DATABASE_NAME;
-// Create connection
-$conn = mysqli_connect($servername, $username, $password, $dbname);
-// Check connection
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-
-$sql = "SELECT id, name, exp_date FROM Food";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0) {
-
-	echo "<table><tr><th>ID</th><th>Name</th></tr>";
-    // output data of each row
-
-    while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["exp_date"]."</td></tr>";
+<?php
+    if(file_exists('db-config.php')){
+    	require_once 'db-config.php';
     }
-	echo "</table>";
-} else {
-    echo "0 results";
-}
+    else{
+    	die("Error: db-config.php not found");
+    }
+    $servername = SERVER_NAME;
+    $username = USERNAME;
+    $password = PASSWORD;
+    $dbname = DATABASE_NAME;
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+    // Check connection
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
-mysqli_close($conn);
+    $sql = "SELECT id, name, exp_date FROM Food";
+    $result = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result) > 0) {
+
+    	echo "<table><tr><th>ID</th><th>Name</th></tr>";
+        // output data of each row
+
+        while($row = mysqli_fetch_assoc($result)) {
+            echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["exp_date"]."</td></tr>";
+        }
+    	echo "</table>";
+    } else {
+        echo "0 results";
+    }
+
+    mysqli_close($conn);
 ?>
 </body>
 
