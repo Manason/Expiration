@@ -69,7 +69,7 @@ if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
         echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["exp_date"]."</td></tr>";
     }
-	echo "</table>"
+	echo "</table>";
 } else {
     echo "0 results";
 }
