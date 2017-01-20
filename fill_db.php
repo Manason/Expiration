@@ -10,6 +10,7 @@ $servername = SERVER_NAME;
 $username = USERNAME;
 $password = PASSWORD;
 $dbname = DATABASE_NAME;
+$tablename = "FOOD";
 
 $food = $_POST["food"];
 $exp_date = $_POST["expiration"];
@@ -24,7 +25,7 @@ if (!$conn) {
 echo $food;
 echo $exp_date;
 
-$sql = "INSERT INTO " . $dbname . " (name, exp_date) VALUES ($food, $exp_date)";
+$sql = "INSERT INTO " . $tablename . " (name, exp_date) VALUES ($food, $exp_date)";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
