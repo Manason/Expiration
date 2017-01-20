@@ -11,8 +11,8 @@ $username = USERNAME;
 $password = PASSWORD;
 $dbname = DATABASE_NAME;
 
-$test1 = $_POST('food');
-$test2 = $_POST('expiration');
+$test1 = "$_POST('food')";
+$test2 = "$_POST('expiration')";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
