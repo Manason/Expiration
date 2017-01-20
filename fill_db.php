@@ -25,7 +25,7 @@ if (!$conn) {
 echo $food;
 echo $exp_date;
 
-$sql = "INSERT INTO " . $tablename . " (name, exp_date) VALUES ($food, $exp_date)";
+$sql = "INSERT INTO " . $tablename . " (name, exp_date) VALUES ('$food', '$exp_date')";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
