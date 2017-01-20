@@ -20,7 +20,7 @@
    <!-- THis is a test for us -->
 
    <!-- This is where to put server link -->
-   <form action="put server side thing here">
+   <form action="fill_db.php", method="post">
       <!-- for the food -->
       <label>Food:
           <input type="text" size="21" maxlength="30" name="food"><br />
@@ -62,10 +62,10 @@ $sql = "SELECT id, name, exp_date FROM Food";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
- 
+
 	echo "<table><tr><th>ID</th><th>Name</th></tr>";
     // output data of each row
-    
+
     while($row = mysqli_fetch_assoc($result)) {
         echo "<tr><td>".$row["id"]."</td><td>".$row["name"]." ".$row["exp_date"]."</td></tr>";
     }
@@ -75,7 +75,7 @@ if (mysqli_num_rows($result) > 0) {
 }
 
 mysqli_close($conn);
-?> 
+?>
 </body>
 
 </html>
