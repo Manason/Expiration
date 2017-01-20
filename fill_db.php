@@ -10,7 +10,7 @@ $servername = SERVER_NAME;
 $username = USERNAME;
 $password = PASSWORD;
 $dbname = DATABASE_NAME;
-$tablename = "FOOD";
+$tablename = "Food";
 
 $food = $_POST["food"];
 $exp_date = $_POST["expiration"];
