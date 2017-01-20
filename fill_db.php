@@ -18,8 +18,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO " . $dbname . "(name, exp_date)";
-VALUES ($_POST("food"), $_POST("expiration"));
+$sql = "INSERT INTO " . $dbname . "(name, exp_date) VALUES ($_POST("food"), $_POST("expiration"))";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
