@@ -9,3 +9,10 @@ h1 {
 form{
     text-align: center;
 }
+
+.calendar {
+    align-items: center;
+}
+.date {
+    align-items: center;
+}
