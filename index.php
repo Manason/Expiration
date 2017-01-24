@@ -31,12 +31,12 @@
    <form action="fill_db.php", method="post">
       Food: <input type="text" size="21" maxlength="30" name="food"><br />
       <br />
-      <!-- calendar -->
-      <div id="calendar"></div>
       Expiration: <input type="date" size="24" name="expiration" id="date" disabled="true" value="Select Date"></label><br>
       <br />
       <input type="submit" name="submit" value="Submit"/>
    </form>
+   <!-- calendar -->
+   <div id="calendar"></div>
 
 
 <?php
