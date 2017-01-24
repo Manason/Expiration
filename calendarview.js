@@ -183,7 +183,7 @@ Calendar.defaultSelectHandler = function(calendar)
   if (!calendar.dateField) return false
 
   // Update dateField value
-  if (calendar.dateField.tagName == 'DIV')
+  if (calendar.dateField.tagName == 'expiration')
     Element.update(calendar.dateField, calendar.date.print(calendar.dateFormat))
   else if (calendar.dateField.tagName == 'INPUT') {
     calendar.dateField.value = calendar.date.print(calendar.dateFormat) }
