@@ -29,13 +29,10 @@
    <h1>Name Here!</h1>
 
    <form action="fill_db.php", method="post">
-      <!-- for the food -->
       Food: <input type="text" size="21" maxlength="30" name="food"><br />
       <br />
-
       Expiration: <input type="date" size="24" name="expiration"></label><br>
       <br />
-
       <input type="submit" name="submit" value="Submit"/>
    </form>
 

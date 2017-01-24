@@ -10,9 +10,9 @@ form{
     text-align: center;
 }
 
-.calendar {
+div.calendar {
     align-items: center;
 }
-.date {
+div.date {
     align-items: center;
 }
