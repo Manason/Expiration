@@ -35,7 +35,7 @@
 					
 				}
 			};
-			xmlhttp.open("POST", getFood.php, true);
+			xmlhttp.open("POST", "getFood.php", true);
 			xmlhttp.send();
 		}
 		
@@ -57,7 +57,7 @@
 			
 			formData = new FormData(document.getElementById('addFood'));
 			
-			xmlhttp.open("POST", fill_db.php, true);
+			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.send(formData);
 		}
     </script>
