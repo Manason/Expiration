@@ -32,11 +32,12 @@
 			
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
-					
+					console.log(this.response());
 				}
 			};
 			xmlhttp.open("POST", "getFood.php", true);
 			xmlhttp.send();
+			console.log("Table should be shown");
 		}
 		
 		function sendFood(){
@@ -52,6 +53,7 @@
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
 					showTable()
+					console.log("We recieved a response");
 				}
 			};
 			
@@ -59,6 +61,7 @@
 			
 			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.send(formData);
+			console.log("We sent the form");
 		}
     </script>
     <!-- end calendar scripts -->
