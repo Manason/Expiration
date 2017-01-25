@@ -25,9 +25,9 @@ $sql = "SELECT name, exp_date FROM " . $tablename;
 $result = mysqli_query($conn, $sql);
 
 echo "
-<div class="foodTable">
+<div class=\"foodTable\">
 <table>
-<tr>
+<tr
 <th>Name</th>
 <th>Expiration Date</th>
 </tr>";
