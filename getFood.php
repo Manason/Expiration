@@ -41,5 +41,5 @@ while($row = mysqli_fetch_array($result)){
 }
 
 echo "</table>";
-echo "</div>"
+echo "</div>";
 mysqli_close($conn);
