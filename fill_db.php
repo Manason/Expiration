@@ -22,9 +22,6 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-echo $food;
-echo $exp_date;
-
 $sql = "INSERT INTO " . $tablename . " (name, exp_date) VALUES ('$food', '$exp_date')";
 
 if (mysqli_query($conn, $sql)) {

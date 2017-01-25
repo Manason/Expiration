@@ -10,6 +10,7 @@ $servername = SERVER_NAME;
 $username = USERNAME;
 $password = PASSWORD;
 $dbname = DATABASE_NAME;
+$tablename = "Food";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -20,10 +21,12 @@ if (!$conn) {
 }
 echo "Connected successfully";
 
-$sql = "SELECT name, exp_date FROM Food";
+$sql = "SELECT name, exp_date FROM " . $tablename;
 $result = mysqli_query($conn, $sql);
 
-echo "<table>
+echo "
+<div class="foodTable">
+<table>
 <tr>
 <th>Name</th>
 <th>Expiration Date</th>
@@ -34,7 +37,9 @@ while($row = mysqli_fetch_array($result)){
 	echo "<td>" . $row['name'] . "</td>";
 	echo "<td>" . $row['exp_date'] . "</td>";
 	echo "</tr>";
+	
 }
 
 echo "</table>";
+echo "</div>"
 mysqli_close($conn);

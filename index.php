@@ -17,7 +17,49 @@
                 dateField     : 'date',
                 parentElement : 'calendar'
             })
+			
+			showTable();
         }
+		
+		function showTable(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					
+				}
+			};
+			xmlhttp.open("POST", getFood.php, true);
+			xmlhttp.send();
+		}
+		
+		function sendFood(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					//successfully recieved response from server
+					showTable()
+				}
+			};
+			
+			formData = new FormData(document.getElementById('addFood'));
+			
+			xmlhttp.open("POST", fill_db.php, true);
+			xmlhttp.send(formData);
+		}
     </script>
     <!-- end calendar scripts -->
     <!-- Title of website -->
@@ -28,8 +70,8 @@
     <!-- Title -->
    <h1>Name Here!</h1>
 
-   <form action="fill_db.php", method="post">
-      Food: <input type="text" size="21" maxlength="30" name="food"><br />
+   <form id="addFood" onSubmit="sendFood()">
+      Food: <input type="text" size="21" maxlength="30" name="food" id="food"><br />
       <br />
       Expiration: <input type="date" size="24" name="expiration" id="date" value="Select Date"></label><br>
       <br />
@@ -39,7 +81,7 @@
    <div id="calendar"></div>
 
 
-<?php
+<?php/*
     if(file_exists('db-config.php')){
     	require_once 'db-config.php';
     }
@@ -73,7 +115,7 @@
         echo "0 results";
     }
 
-    mysqli_close($conn);
+    mysqli_close($conn);*/
 ?>
 </body>
 
