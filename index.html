@@ -17,10 +17,10 @@
                 dateField     : 'date',
                 parentElement : 'calendar'
             })
-			
+
 			showTable();
         }
-		
+
 		function showTable(){
 			if(window.XMLHttpRequest){
 				// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -29,7 +29,7 @@
 				// code for IE6, IE5
 				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 			}
-			
+
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
 					console.log(this.response);
@@ -39,7 +39,7 @@
 			xmlhttp.send();
 			console.log("Table should be shown");
 		}
-		
+
 		function sendFood(){
 			if(window.XMLHttpRequest){
 				// code for IE7+, Firefox, Chrome, Opera, Safari
@@ -48,7 +48,7 @@
 				// code for IE6, IE5
 				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
 			}
-			
+
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
@@ -56,9 +56,9 @@
 					console.log("We recieved a response");
 				}
 			};
-			
+
 			formData = new FormData(document.getElementById('addFood'));
-			
+
 			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.send(formData);
 			console.log("We sent the form");
@@ -76,7 +76,7 @@
    <form id="addFood" onSubmit="sendFood()">
       Food: <input type="text" size="21" maxlength="30" name="food" id="food"><br />
       <br />
-      Expiration: <input type="date" size="24" name="expiration" id="date" value="Select Date"></label><br>
+      Expiration: <input type="date" size="24" name="expiration" id="date" value="Select Date" onclick='return false;'></label><br>
       <br />
       <input type="submit" name="submit" value="Submit"/>
    </form>
