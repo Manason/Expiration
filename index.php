@@ -64,7 +64,6 @@
 			console.log("We sent the form");
 		}
     </script>
-    <!-- end calendar scripts -->
     <!-- Title of website -->
     <title>Test Title</title>
 </head>
@@ -76,12 +75,12 @@
    <form id="addFood" onSubmit="sendFood()">
       Food: <input type="text" size="21" maxlength="30" name="food" id="food"><br />
       <br />
-      Expiration: <input type="date" size="24" name="expiration" id="date" value="Select Date" onclick='return false;'></label><br>
+      <!-- calendar -->
+      <div id="calendar"></div>
+      Expiration: <input type="date" size="24" name="expiration" id="date" value="Select Date"></label><br>
       <br />
       <input type="submit" name="submit" value="Submit"/>
    </form>
-   <!-- calendar -->
-   <div id="calendar"></div>
 
 
 </body>
