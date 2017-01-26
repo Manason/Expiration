@@ -10,10 +10,7 @@ form{
     text-align: center;
 }
 
-div.calendar {
-    align-items: center;
-}
-div.date {
+.calendar {
     align-items: center;
 }
 
