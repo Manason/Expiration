@@ -32,7 +32,7 @@
 
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
-					console.log(this.response);
+					document.getElementById("foodTable").innerHTML = this.responseText;
 				}
 			};
 			xmlhttp.open("POST", "getFood.php", true);
@@ -82,7 +82,7 @@
       <input type="submit" name="submit" value="Submit"/>
    </form>
 
-
+	<div id="foodTable"></div>
 </body>
 
 </html>
