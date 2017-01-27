@@ -43,6 +43,7 @@
 		}
 
 		function sendFood(){
+			console.log("Starting sendFood()");
 			if(window.XMLHttpRequest){
 				// code for IE7+, Firefox, Chrome, Opera, Safari
 				xmlhttp = new XMLHttpRequest();
@@ -58,9 +59,9 @@
 					console.log("We recieved a response");
 				}
 			};
-
+			console.log("creating the form");
 			formData = new FormData(document.getElementById('addFood'));
-
+			
 			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.send(formData);
 			console.log("We sent the form");
