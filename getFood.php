@@ -34,14 +34,14 @@ echo "
 
 while($row = mysqli_fetch_array($result)){
 	echo 
-	"<tr>"
-	"<td>" . $row['name'] . "</td>"
-    "<td>" . $row['exp_date'] . "</td>"
-	"</tr>";
+	"<tr>
+	 <td>" . $row['name'] . "</td>
+     <td>" . $row['exp_date'] . "</td>
+	 </tr>";
 	
 }
 
 echo 
-"</table>"
-"</div>";
+"</table>
+ </div>";
 mysqli_close($conn);
