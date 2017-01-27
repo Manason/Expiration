@@ -27,19 +27,21 @@ $result = mysqli_query($conn, $sql);
 echo "
 <div class=\"foodTable\">
 <table>
-<tr
+<tr>
 <th>Name</th>
 <th>Expiration Date</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result)){
-	echo "<tr>";
-	echo "<td>" . $row['name'] . "</td>";
-	echo "<td>" . $row['exp_date'] . "</td>";
-	echo "</tr>";
+	echo 
+	"<tr>"
+	"<td>" . $row['name'] . "</td>"
+    "<td>" . $row['exp_date'] . "</td>"
+	"</tr>";
 	
 }
 
-echo "</table>";
-echo "</div>";
+echo 
+"</table>"
+"</div>";
 mysqli_close($conn);
