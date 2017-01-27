@@ -54,7 +54,7 @@
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
-					showTable()
+					showTable();
 					console.log("We recieved a response");
 				}
 			};
@@ -74,7 +74,7 @@
     <!-- Title -->
    <h1>Name Here!</h1>
 
-   <form id="addFood" onSubmit="sendFood()">
+   <form id="addFood" onSubmit="sendFood();">
       Food: <input type="text" size="21" maxlength="30" name="food" id="food"><br />
       <br />
       <!-- calendar -->
