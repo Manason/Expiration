@@ -15,6 +15,10 @@ $tablename = "Food";
 $food = $_POST["food"];
 $exp_date = $_POST["expiration"];
 
+echo "Displaying post results of food and exp_date";
+echo $food;
+echo $exp_date;
+
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 // Check connection
