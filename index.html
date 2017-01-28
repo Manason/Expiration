@@ -32,18 +32,14 @@
 
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
-					console.log("About to create table");
 					document.getElementById("foodTable").innerHTML = this.responseText;
-					console.log("Table created");
 				}
 			};
 			xmlhttp.open("POST", "getFood.php", true);
 			xmlhttp.send();
-			console.log("Table should be shown");
 		}
 
 		function sendFood(){
-			console.log("Starting sendFood()");
 			if(window.XMLHttpRequest){
 				// code for IE7+, Firefox, Chrome, Opera, Safari
 				xmlhttp = new XMLHttpRequest();
@@ -56,15 +52,12 @@
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
 					showTable();
-					console.log("We recieved a response");
 				}
 			};
-			console.log("creating the form");
 			formData = new FormData(document.getElementById('addFood'));
 
 			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.send(formData);
-			console.log("We sent the form");
 		}
     </script>
     <!-- Title of website -->
