@@ -3,6 +3,7 @@ div.calendar
 {
   font-size: smaller;
   color: #000;
+  border: 2px solid purple;
 }
 
 div.calendar.popup
