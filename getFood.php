@@ -19,7 +19,6 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully";
 
 $sql = "SELECT name, exp_date FROM " . $tablename;
 $result = mysqli_query($conn, $sql);
@@ -32,12 +31,12 @@ echo
 </tr>";
 
 while($row = mysqli_fetch_array($result)){
-	echo 
+	echo
 	"<tr>
 	 <td>" . $row['name'] . "</td>
      <td>" . $row['exp_date'] . "</td>
 	 </tr>";
-	
+
 }
 
 echo "</table>";
