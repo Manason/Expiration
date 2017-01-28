@@ -11,9 +11,9 @@ form{
 }
 
 .calendar {
-    display: inline;
+    display: block;
     margin: auto;
-    width: 50%;
+    width: 75%;
 }
 
 #foodTable{
