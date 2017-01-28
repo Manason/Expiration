@@ -11,7 +11,7 @@ form{
 }
 
 .calendar {
-    display: block;
+    display: inline;
     margin: auto;
     width: 50%;
 }
