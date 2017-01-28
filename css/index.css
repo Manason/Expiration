@@ -13,7 +13,8 @@ form{
 .calendar {
     display: block;
     margin: auto;
-    width: 25%;
+    width: 10%;
+    border: 4px solid blue;
 }
 
 #foodTable{
