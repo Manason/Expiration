@@ -11,7 +11,8 @@ form{
 }
 
 #foodTable{
-	width:10%;
+    margin-top:50px;
+	width:100%;
     border: 4px solid blue;
     margin:auto;
     display: block;
