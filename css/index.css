@@ -11,13 +11,6 @@ form{
     border: 3px solid red;
 }
 
-.calendar {
-    display: block;
-    margin: auto;
-    width: 10%;
-    border: 4px solid blue;
-}
-
 #foodTable{
 	width:100%;
 	border-collapse: collapse;
