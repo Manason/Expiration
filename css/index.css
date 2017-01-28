@@ -15,9 +15,17 @@ form{
 	border-collapse: collapse;
 }
 
-#foodTable > table > td > th{
+#foodTable > table{
 	border: 1px solid black;
 	padding: 5px;
 }
 
+#foodTable > td{
+	border: 1px solid black;
+	padding: 5px;
+}
+#foodTable > th{
+	border: 1px solid black;
+	padding: 5px;
+}
 #foodTable > th {text-align: left;}
