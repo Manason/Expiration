@@ -3,6 +3,7 @@ div.calendar
 {
   font-size: smaller;
   color: #000;
+  align-items: center;
 }
 
 div.calendar.popup
