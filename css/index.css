@@ -13,8 +13,7 @@ form{
 #foodTable{
     margin-top:50px;
 	width:100%;
-    margin-left:auto;
-    margin-right:auto;
+    margin:auto;
     display: block;
 	border-collapse: collapse;
 }

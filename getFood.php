@@ -24,7 +24,7 @@ $sql = "SELECT name, exp_date FROM " . $tablename;
 $result = mysqli_query($conn, $sql);
 
 echo
-"<table>
+"<table align="center">
 <tr>
 <th>Name</th>
 <th>Expiration Date</th>
