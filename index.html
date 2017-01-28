@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <!-- If IE use the latest rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- calendar scripts -->
+    <link href="css/calendarview.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="prototype.js"></script>
+    <script type="text/javascript" src="calendarview.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            Calendar.setup({
+                dateField     : 'date',
+                parentElement : 'calendar'
+            })
+
+			showTable();
+        }
+
+		function showTable(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					document.getElementById("foodTable").innerHTML = this.responseText;
+				}
+			};
+			xmlhttp.open("POST", "getFood.php", true);
+			xmlhttp.send();
+		}
+
+		function sendFood(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					//successfully recieved response from server
+					showTable();
+				}
+			};
+			formData = new FormData(document.getElementById('addFood'));
+
+			xmlhttp.open("POST", "fill_db.php", true);
+			xmlhttp.send(formData);
+		}
+    </script>
+    <!-- Title of website -->
+    <title>Expiration</title>
+</head>
+
+<body>
+    <!-- Title -->
+   <h1>EXPIRATION</h1>
+
+   <form id="addFood" onSubmit="sendFood();">
+      Food: <input type="text" size="21" maxlength="30" name="food" id="food"><br />
+      <br />
+      <!-- calendar -->
+      <div id="calendar"></div>
+      <input type="hidden" id="date" name="expiration"/>
+      <br />
+      <input type="submit" name="submit" value="Submit"/>
+      <br />
+   </form>
+
+	<div id="foodTable"></div>
+</body>
+
+</html>

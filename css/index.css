@@ -1,0 +1,34 @@
+h1 {
+    text-align: center;
+    background-color: #e2575e;
+    color: #fdfdfd;
+    font-family: 'Oxygen', sans-serif;
+    padding: 10px;
+}
+
+form{
+    text-align: center;
+}
+
+#foodTable{
+	width:100%;
+    margin:auto;
+    margin-bottom:50px;
+    display: block;
+	border-collapse: collapse;
+}
+
+#foodTable > table{
+	border: 1px solid black;
+	padding: 5px;
+}
+
+#foodTable > td{
+	border: 1px solid black;
+	padding: 5px;
+}
+#foodTable > th{
+	border: 1px solid black;
+	padding: 5px;
+}
+#foodTable > th {text-align: left;}
