@@ -8,6 +8,7 @@ h1 {
 
 form{
     text-align: center;
+    border: 3px solid red;
 }
 
 .calendar {

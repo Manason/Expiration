@@ -61,7 +61,7 @@
 			};
 			console.log("creating the form");
 			formData = new FormData(document.getElementById('addFood'));
-			
+
 			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.send(formData);
 			console.log("We sent the form");
