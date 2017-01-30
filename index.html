@@ -59,6 +59,31 @@
 			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.send(formData);
 		}
+		function editMode(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					//successfully recieved response from server
+					var button = document.getElementById("editButton")
+					if(button.innerHTML == "Edit"){
+						button.innerHTML = "Save Changes";
+					}
+					else{
+						button.innerHTML = "Edit";
+					}
+				}
+			};
+
+			xmlhttp.open("POST", "editMode.php", true);
+			xmlhttp.send();
+		}
     </script>
     <!-- Title of website -->
     <title>Expiration</title>
@@ -80,6 +105,7 @@
    </form>
 
 	<div id="foodTable"></div>
+	<button id="editButton" onclick="editMode();">Edit</button>
 </body>
 
 </html>
