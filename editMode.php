@@ -20,20 +20,22 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT name, exp_date FROM " . $tablename;
+$sql = "SELECT id, name, exp_date FROM " . $tablename;
 $result = mysqli_query($conn, $sql);
 
 echo
 "<table align=\"center\">
 <tr>
+<th>ID</th>
 <th>Name</th>
-<th>Expiration Date</th>
+<th>Date</th>
 <th>Delete Entry</th>
 </tr>";
 
 while($row = mysqli_fetch_array($result)){
 	echo
 	"<tr>
+	 <td>" . $row['id'] . "</td>
 	 <td><input type=\"text\" value=\"". $row['name'] ."\"</input></td>
      <td>" . $row['exp_date'] . "</td>
 	 <td><input type=\"checkbox\"></input></td>
