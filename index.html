@@ -71,7 +71,7 @@
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
-					
+
 					var button = document.getElementById("editButton")
 					if(button.innerHTML == "Edit"){
 						button.innerHTML = "Save Changes";
@@ -109,6 +109,11 @@
 
 	<div id="foodTable"></div>
 	<button id="editButton" onclick="editMode();">Edit</button>
+    <form action="sendEmail.php" method="get">
+        <input type="submit">
+    </form>
+
+
 </body>
 
 </html>
