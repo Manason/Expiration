@@ -39,7 +39,7 @@
 			xmlhttp.send();
 		}
 
-		function sendFood(){
+		function sendFood(name, date){
 			if(window.XMLHttpRequest){
 				// code for IE7+, Firefox, Chrome, Opera, Safari
 				xmlhttp = new XMLHttpRequest();
@@ -54,10 +54,10 @@
 					showTable();
 				}
 			};
-			formData = new FormData(document.getElementById('addFood'));
+			
 
 			xmlhttp.open("POST", "fill_db.php", true);
-			xmlhttp.send(formData);
+			xmlhttp.send(name, date);
 		}
 		function editMode(){
 			if(window.XMLHttpRequest){
@@ -96,7 +96,7 @@
     <!-- Title -->
    <h1>EXPIRATION</h1>
 
-   <form id="addFood" onSubmit="sendFood();">
+   <form id="addFood" onSubmit="sendFood(document.getElementById("food").value, document.getElementById("date").value);">
       Food: <input type="text" size="21" maxlength="30" name="food" id="food"><br />
       <br />
       <!-- calendar -->
