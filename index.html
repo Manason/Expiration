@@ -71,6 +71,7 @@
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
+					document.getElementById("foodTable").innerHTML = this.responseText;
 					var button = document.getElementById("editButton")
 					if(button.innerHTML == "Edit"){
 						button.innerHTML = "Save Changes";
