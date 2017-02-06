@@ -1,11 +1,11 @@
 <?php
+
 if(file_exists('db-config.php')){
 	require_once 'db-config.php';
 }
 else{
 	die("Error: db-config.php not found");
 }
-//connect to server
 $servername = SERVER_NAME;
 $username = USERNAME;
 $password = PASSWORD;
@@ -14,15 +14,17 @@ $tablename = "Food";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
+
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
 //make food the items that expire today separated by a comma
-$sql = "SELECT * FROM $tablename";
+$food = "SELECT * FROM $tablename";
+$result = mysqli_query($conn, $food);
 // $food = "SELECT GROUP_CONCAT(name) FROM ".tablename." WHERE exp_date = CURDATE()"
-echo $sql; //see what is going to be sent
+echo $result; //see what is going to be sent
 
 // $visitor_email = EMAIL; //address the email will be sent to
 // $email_from = 'yourname@yourwebsite.com'; //address the email is from
