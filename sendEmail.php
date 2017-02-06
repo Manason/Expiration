@@ -20,7 +20,7 @@ if (!$conn) {
 }
 
 //make food the items that expire today separated by a comma
-$food = "SELECT * FROM " . tablename;
+$food = "SELECT * FROM $tablename";
 // $food = "SELECT GROUP_CONCAT(name) FROM ".tablename." WHERE exp_date = CURDATE()"
 echo $food; //see what is going to be sent
 
