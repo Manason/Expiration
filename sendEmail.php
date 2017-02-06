@@ -21,17 +21,20 @@ if (!$conn) {
 }
 
 //make food the items that expire today separated by a comma
-$food = "SELECT * FROM" . $tablename;
-$result = mysqli_query($conn, $food);
 // $food = "SELECT GROUP_CONCAT(name) FROM ".tablename." WHERE exp_date = CURDATE()"
-if ($result->num_rows > 0) {
+
+$sql = "SELECT name FROM" . $tablename;
+$result = mysqli_query($conn, $sql);
+
+if (mysqli_num_rows($result) > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "id: " . $row["id"]. " - Name: " . $row["firstname"]. " " . $row["lastname"]. "<br>";
+    while($row = mysqli_fetch_assoc($result)) {
+        echo " - Name: " . $row["name"]. "<br>";
     }
 } else {
     echo "0 results";
 }
+
 
 // $visitor_email = EMAIL; //address the email will be sent to
 // $email_from = 'yourname@yourwebsite.com'; //address the email is from
