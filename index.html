@@ -55,7 +55,8 @@
 				}
 			};
 			
-
+			console.log("sending " + name + ", " + date);
+			
 			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.send(name, date);
 		}
