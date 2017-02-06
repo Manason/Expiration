@@ -22,7 +22,7 @@ if (!$conn) {
 //make food the items that expire today separated by a comma
 $sql = "SELECT * FROM $tablename";
 // $food = "SELECT GROUP_CONCAT(name) FROM ".tablename." WHERE exp_date = CURDATE()"
-echo $food; //see what is going to be sent
+echo $sql; //see what is going to be sent
 
 // $visitor_email = EMAIL; //address the email will be sent to
 // $email_from = 'yourname@yourwebsite.com'; //address the email is from
