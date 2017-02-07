@@ -55,12 +55,11 @@
 				}
 			};
 			
-			var form = new FormData();
-			form.append('name', name);
-			form.append('exp_date', date);
+			var info = "name=" + name + "&exp_date=" + date;
 			
 			xmlhttp.open("POST", "fill_db.php", true);
-			xmlhttp.send(form);
+			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlhttp.send(info);
 		}
 		function editMode(){
 			if(window.XMLHttpRequest){
