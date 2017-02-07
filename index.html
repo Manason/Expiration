@@ -55,10 +55,12 @@
 				}
 			};
 			
-			console.log("sending " + name + ", " + date);
+			var form = new FormData();
+			form.append('name', name);
+			form.append('exp_date', date);
 			
 			xmlhttp.open("POST", "fill_db.php", true);
-			xmlhttp.send(name, date);
+			xmlhttp.send(form);
 		}
 		function editMode(){
 			if(window.XMLHttpRequest){
