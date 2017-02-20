@@ -52,6 +52,7 @@
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
 					showTable();
+					console.log("Data Received");
 				}
 			};
 			
@@ -60,6 +61,7 @@
 			xmlhttp.open("POST", "fill_db.php", true);
 			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(info);
+			console.log("Data Sent");
 		}
 		function editMode(){
 			if(window.XMLHttpRequest){
