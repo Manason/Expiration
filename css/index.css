@@ -32,3 +32,9 @@ form{
 	padding: 5px;
 }
 #foodTable > th {text-align: left;}
+
+#ButtonEdit{
+    text-align: center;
+    margin: auto;
+    padding-bottom: 15px;
+}
