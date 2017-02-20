@@ -58,7 +58,7 @@
 			var info = "name=" + name + "&exp_date=" + date;
 			
 			xmlhttp.open("POST", "fill_db.php", true);
-			xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 			xmlhttp.send(info);
 		}
 		function editMode(){
