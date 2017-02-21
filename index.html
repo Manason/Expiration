@@ -83,6 +83,7 @@
 						
 					}
 					else{
+						deleteTable();
 						var table = document.getElementById("foodTable").firstChild;
 						for(var x = 1; x < table.rows.length; x++){
 							var name = table.rows[x].cells[1].firstChild.value;
@@ -100,6 +101,24 @@
 			};
 
 			xmlhttp.open("POST", "editMode.php", true);
+			xmlhttp.send();
+		}
+		function deleteTable(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					//successfully recieved response from server
+					
+			};
+
+			xmlhttp.open("POST", "deleteTable.php", true);
 			xmlhttp.send();
 		}
     </script>
