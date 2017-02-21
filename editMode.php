@@ -19,7 +19,8 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-
+$sql = "TRUNCATE TABLE Food";
+mysqli_query($conn, $sql);
 $sql = "SELECT id, name, exp_date FROM " . $tablename;
 $result = mysqli_query($conn, $sql);
 

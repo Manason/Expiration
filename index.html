@@ -85,10 +85,13 @@
 					else{
 						var table = document.getElementById("foodTable").firstChild;
 						for(var x = 1; x < table.rows.length; x++){
-							var id = table.rows[x].cells[0].innerHTML;
 							var name = table.rows[x].cells[1].firstChild.value;
 							var date = table.rows[x].cells[2].innerHTML;
-							sendFood(name, date);
+							var checked = table.rows[x].cells[3].checked;
+							
+							if(checked == false){
+								sendFood(name, date);
+							}
 						}
 						button.innerHTML = "Edit";
 						showTable();
