@@ -19,8 +19,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-$sql = "TRUNCATE TABLE Food";
-mysqli_query($conn, $sql);
+
 $sql = "SELECT id, name, exp_date FROM " . $tablename;
 $result = mysqli_query($conn, $sql);
 
@@ -45,4 +44,8 @@ while($row = mysqli_fetch_array($result)){
 }
 
 echo "</table>";
+
+$sql = "TRUNCATE TABLE Food";
+mysqli_query($conn, $sql);
+
 mysqli_close($conn);
