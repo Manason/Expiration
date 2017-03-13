@@ -111,7 +111,7 @@
 							var name = table.rows[x].cells[1].firstChild.value;
 							var date = table.rows[x].cells[2].innerHTML;
 							var checked = table.rows[x].cells[3].checked;
-							console.log("NAME: " + name ", DATE: " + date + ", CHECKED: " + checked );
+							console.log("NAME: " + name + ", DATE: " + date + ", CHECKED: " + checked );
 							if(checked == true){
 								sendFood(name, date);
 							}
