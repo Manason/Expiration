@@ -38,7 +38,7 @@ while($row = mysqli_fetch_array($result)){
 	 <td>" . $row['id'] . "</td>
 	 <td><input type=\"text\" value=\"". $row['name'] ."\"</input></td>
      <td>" . $row['exp_date'] . "</td>
-	 <td><input type=\"checkbox\" checked=\"false\"></input></td>
+	 <td><input type=\"checkbox\"></input></td>
 	 </tr>";
 
 }
