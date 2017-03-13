@@ -30,8 +30,6 @@ if (mysqli_num_rows($result) > 0) {
     echo "0 results";
 }
 
-
-
 // $food = "SELECT GROUP_CONCAT(name) FROM ".tablename." WHERE exp_date = CURDATE()"
 // $visitor_email = EMAIL; //address the email will be sent to
 // $email_from = 'yourname@yourwebsite.com'; //address the email is from
