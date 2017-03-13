@@ -110,7 +110,7 @@
 						for(var x = 1; x < table.rows.length; x++){
 							var name = table.rows[x].cells[1].firstChild.value;
 							var date = table.rows[x].cells[2].innerHTML;
-							var checked = table.rows[x].cells[3].checked;
+							var checked = table.rows[x].cells[3].value;
 							console.log("NAME: " + name + ", DATE: " + date + ", CHECKED: " + checked );
 							if(checked == true){
 								sendFood(name, date);
