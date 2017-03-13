@@ -18,7 +18,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "SELECT name FROM" . $tablename;
+$sql = "SELECT name FROM Food";
 $result = mysqli_query($conn, $sql);
 
 if (mysqli_num_rows($result) > 0) {
