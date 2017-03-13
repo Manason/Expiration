@@ -37,6 +37,9 @@ if (mysqli_num_rows($result) > 0) {
 // $email_body = "Here are some recipes to use!"; //body of email
 // $headers = "From: $email_from \r\n"; //headers for email
 // $headers .= "Reply-To: $visitor_email \r\n"; //more headers
+//for content-type when sending the email
+// $headers .= "MIME-Version: 1.0" . "\r\n";
+// $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 
 //send email (send to, subject, body, headers)
 // mail($visitor_email,$email_subject,$email_body,$headers)
