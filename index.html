@@ -116,8 +116,11 @@
 								sendFood(name, date);
 								console.log("added food! Checked is false");
 							}
-							else{
+							else if(checked == true){
 								console.log("Checked is true");
+							}
+							else{
+								console.log("checke is neither true nor false");
 							}
 						}
 						var button = document.getElementById("editButton");
