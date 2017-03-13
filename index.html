@@ -76,7 +76,7 @@
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
 
-					var button = document.getElementById("editButton")
+					var button = document.getElementById("editButton");
 					if(button.innerHTML == "Edit"){
 						button.innerHTML = "Save Changes";
 						document.getElementById("foodTable").innerHTML = this.responseText;
@@ -110,13 +110,13 @@
 						for(var x = 1; x < table.rows.length; x++){
 							var name = table.rows[x].cells[1].firstChild.value;
 							var date = table.rows[x].cells[2].innerHTML;
-							var checked = table.rows[x].cells[3].value;
+							var checked = table.rows[x].cells[3].checked;
 							console.log("NAME: " + name + ", DATE: " + date + ", CHECKED: " + checked );
-							if(checked == true){
+							if(checked == false){
 								sendFood(name, date);
 							}
 						}
-						var button = document.getElementById("editButton")
+						var button = document.getElementById("editButton");
 						button.innerHTML = "Edit";
 						showTable();
 				}
