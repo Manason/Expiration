@@ -112,7 +112,7 @@
 							var date = table.rows[x].cells[2].innerHTML;
 							var checked = table.rows[x].cells[3].checked;
 							console.log("NAME: " + name + ", DATE: " + date + ", CHECKED: " + checked );
-							if(checked == true){
+							if(checked == false){
 								sendFood(name, date);
 							}
 						}
