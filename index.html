@@ -83,19 +83,8 @@
 						
 					}
 					else{
-						deleteTable();
-						var table = document.getElementById("foodTable").firstChild;
-						for(var x = 1; x < table.rows.length; x++){
-							var name = table.rows[x].cells[1].firstChild.value;
-							var date = table.rows[x].cells[2].innerHTML;
-							var checked = table.rows[x].cells[3].checked;
-							
-							if(checked == true){
-								sendFood(name, date);
-							}
-						}
-						button.innerHTML = "Edit";
-						showTable();
+						submitEdit();
+						
 					}
 				}
 			};
@@ -103,7 +92,7 @@
 			xmlhttp.open("POST", "editMode.php", true);
 			xmlhttp.send();
 		}
-		function deleteTable(){
+		function submitEdit(){
 			if(window.XMLHttpRequest){
 				// code for IE7+, Firefox, Chrome, Opera, Safari
 				xmlhttp = new XMLHttpRequest();
@@ -115,6 +104,18 @@
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
+					var table = document.getElementById("foodTable").firstChild;
+						for(var x = 1; x < table.rows.length; x++){
+							var name = table.rows[x].cells[1].firstChild.value;
+							var date = table.rows[x].cells[2].innerHTML;
+							var checked = table.rows[x].cells[3].checked;
+							
+							if(checked == true){
+								sendFood(name, date);
+							}
+						}
+						button.innerHTML = "Edit";
+						showTable();
 				}
 					
 			};
