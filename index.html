@@ -104,12 +104,14 @@
 			xmlhttp.onreadystatechange = function(){
 				if (this.readyState == 4 && this.status == 200){
 					//successfully recieved response from server
+					console.log("Going through table")
 					var table = document.getElementById("foodTable").firstChild;
+					
 						for(var x = 1; x < table.rows.length; x++){
 							var name = table.rows[x].cells[1].firstChild.value;
 							var date = table.rows[x].cells[2].innerHTML;
 							var checked = table.rows[x].cells[3].checked;
-							
+							console.log("NAME: " + name ", DATE: " + date + ", CHECKED" + checked);
 							if(checked == true){
 								sendFood(name, date);
 							}
@@ -123,6 +125,7 @@
 
 			xmlhttp.open("POST", "deleteTable.php", true);
 			xmlhttp.send();
+			console.log("deleting table");
 		}
     </script>
     <!-- Title of website -->
