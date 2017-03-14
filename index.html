@@ -106,8 +106,9 @@
 					//successfully recieved response from server
 					console.log("Going through table");
 					var table = document.getElementById("foodTable").firstChild;
-					
+					console.log("ROWS: " + table.rows.length);
 						for(var x = 1; x < table.rows.length; x++){
+							console.log("CELLS: " + table.rows[x].cells.length);
 							var name = table.rows[x].cells[1].firstChild.value;
 							var date = table.rows[x].cells[2].innerHTML;
 							var checked = table.rows[x].cells[3].checked;
