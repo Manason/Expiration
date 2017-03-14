@@ -111,8 +111,8 @@
 							console.log("CELLS: " + table.rows[x].cells.length);
 							var name = table.rows[x].cells[1].firstChild.value;
 							var date = table.rows[x].cells[2].innerHTML;
-							var checked = table.rows[x].cells[3].checked;
-							console.log("NAME: " + name + ", DATE: " + date + "CHECKBOX TYPE: " + table.rows[x].cells[3].tagName);
+							var checked = table.rows[x].cells[3].firstChild.checked;
+							console.log("NAME: " + name + ", DATE: " + date + "CHECKBOX TYPE: " + table.rows[x].cells[3].firstChild.tagName);
 							if(checked == false){
 								sendFood(name, date);
 								console.log("added food! Checked is false");
