@@ -2,6 +2,38 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+	<!-- making it behave like an app -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<script>
+ 		function BlockMove(event) {
+  			// Tell browser not to move window
+  			event.preventDefault() ;
+	 	}
+	</script>
+	<link rel="apple-touch-icon" href="./apple-touch-icon.png" />	
+	<style>
+		body {
+			margin: 0px ;
+ 			padding: 0px ;
+ 			color: #212121 ;
+ 			font-family: Helvetica ;
+ 			font-size: 14px ;
+		}
+		.button {
+ 			font-family: Helvetica ;
+ 			font-weight: bold ;
+ 			padding: 15px; 
+ 			border: 1px solid black ;
+ 			-moz-border-radius: 8px ;
+ 			-webkit-border-radius: 8px ; 
+ 			margin-top: 10px ;
+ 			margin-bottom: 10px ;
+ 			background-color: white ;
+		}
+	</style>
+
     <link href="css/index.css" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
     <!-- If IE use the latest rendering engine -->
@@ -135,7 +167,7 @@
     <title>Expiration</title>
 </head>
 
-<body>
+<body ontouchmove="BlockMove(event);">
     <!-- Title -->
    <h1>EXPIRATION</h1>
 
