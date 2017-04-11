@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Picture Clicker</title>
+        <script type="text/javascript">
+        window.onload = function(){
+            fillImageTable("https://thumbs.dreamstime.com/t/sweet-small-orange-fruit-leaves-30218835.jpg",2);
+            fillImageTable("http://eathealthylivefit.com/wp-content/uploads/2013/02/apple-red-e1361844844713.jpg",2);
+            fillImageTable("https://www.organicfacts.net/wp-content/uploads/2013/05/Grapes11.jpg",2);
+            fillImageTable("https://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg",2);
+        }
+
+        function fillImageTable(foodImage,x){
+            if(x === 2){
+                var table = document.getElementById("images");
+                var row = table.insertRow(1);
+                var row=document.getElementById("images").rows[1];
+                var x=row.insertCell(-1);
+                var img = document.createElement('img');
+                img.src = foodImage;
+                x.appendChild(img);
+            }
+            else{
+                var row=document.getElementById("images").rows[x];
+                var x=row.insertCell(-1);
+                var img = document.createElement('img');
+                img.src = foodImage;
+                x.appendChild(img);
+            }
+        }
+
+        </script>
+        <style>
+            table img{
+                width: 200px;
+                height: 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <img src="https://d3nevzfk7ii3be.cloudfront.net/igi/jqpEoyoKfwdbPnj2.huge"id="orange"/> -->
+        <table id="images" border="1 px solid"s>
+            <tr></tr>
+            <tr></tr>
+        </table>
+    </body>
+</html>
