@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<!-- making it behave like an app -->
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+	<meta name="viewport" content="user-scalable=no, width=device-width" />
+	<script>
+ 		function BlockMove(event) {
+  			// Tell browser not to move window
+  			event.preventDefault() ;
+	 	}
+	</script>
+	<link rel="apple-touch-icon" href="./apple-touch-icon.png" />	
+	<style>
+		body {
+			margin: 0px ;
+ 			padding: 0px ;
+ 			color: #212121 ;
+ 			font-family: Helvetica ;
+ 			font-size: 14px ;
+		}
+		.button {
+ 			font-family: Helvetica ;
+ 			font-weight: bold ;
+ 			padding: 15px; 
+ 			border: 1px solid black ;
+ 			-moz-border-radius: 8px ;
+ 			-webkit-border-radius: 8px ; 
+ 			margin-top: 10px ;
+ 			margin-bottom: 10px ;
+ 			background-color: white ;
+		}
+	</style>
+
+    <link href="css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+    <!-- If IE use the latest rendering engine -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- calendar scripts -->
+    <link href="css/calendarview.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="prototype.js"></script>
+    <script type="text/javascript" src="calendarview.js"></script>
+    <script type="text/javascript">
+        window.onload = function() {
+            Calendar.setup({
+                dateField     : 'date',
+                parentElement : 'calendar'
+            })
+
+			showTable();
+        }
+
+		function showTable(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					document.getElementById("foodTable").innerHTML = this.responseText;
+				}
+			};
+			xmlhttp.open("POST", "getFood.php", true);
+			xmlhttp.send();
+		}
+
+		function sendFood(name, date){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					//successfully recieved response from server
+					showTable();
+					console.log("Data Received");
+				}
+			};
+			
+			var info = "name=" + name + "&exp_date=" + date;
+			
+			xmlhttp.open("POST", "fill_db.php", true);
+			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+			xmlhttp.send(info);
+			console.log("Data Sent");
+		}
+		function editMode(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					//successfully recieved response from server
+
+					var button = document.getElementById("editButton");
+					if(button.innerHTML == "Edit"){
+						button.innerHTML = "Save Changes";
+						document.getElementById("foodTable").innerHTML = this.responseText;
+						
+					}
+					else{
+						submitEdit();
+						
+					}
+				}
+			};
+
+			xmlhttp.open("POST", "editMode.php", true);
+			xmlhttp.send();
+		}
+		function submitEdit(){
+			if(window.XMLHttpRequest){
+				// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp = new XMLHttpRequest();
+			} else{
+				// code for IE6, IE5
+				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+
+			xmlhttp.onreadystatechange = function(){
+				if (this.readyState == 4 && this.status == 200){
+					//successfully recieved response from server
+					
+					var table = document.getElementById("foodTable").firstChild;
+					console.log("ROWS: " + table.rows.length);
+						for(var x = 1; x < table.rows.length; x++){
+							
+							var name = table.rows[x].cells[1].firstChild.value;
+							var date = table.rows[x].cells[2].innerHTML;
+							var checked = table.rows[x].cells[3].firstChild.checked;
+							
+							if(checked == false){
+								sendFood(name, date);
+								console.log("added food! Checked is false");
+							}
+							
+						}
+						var button = document.getElementById("editButton");
+						button.innerHTML = "Edit";
+						showTable();
+				}
+					
+			};
+
+			xmlhttp.open("POST", "deleteTable.php", true);
+			xmlhttp.send();
+			console.log("deleting table");
+		}
+    </script>
+    <!-- Title of website -->
+    <title>Expiration</title>
+</head>
+
+<body ontouchmove="BlockMove(event);">
+    <!-- Title -->
+   <h1>EXPIRATION</h1>
+
+   <form id="addFood" onSubmit='sendFood(document.getElementById("food").value, document.getElementById("date").value)'>
+      Food: <input type="text" size="21" maxlength="30" name="food" id="food"><br />
+      <br />
+      <!-- calendar -->
+      <div id="calendar"></div>
+      <input type="hidden" id="date" name="exp_date"/>
+      <br />
+      <input type="submit" name="submit" value="Submit"/>
+      <br />
+   </form>
+
+	<div id="foodTable"></div>
+    <div id="ButtonEdit">
+	   <button id="editButton" onclick="editMode();">Edit</button>
+    </div>
+    <!-- make button on bottom to send email JUST A TEST FEATURE NOW -->
+    <form action="sendEmail.php" method="post">
+        <input type="submit" value="Send Email">
+    </form>
+
+
+</body>
+
+</html>

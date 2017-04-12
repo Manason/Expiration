@@ -1,197 +1,131 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-	<!-- making it behave like an app -->
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-	<meta name="viewport" content="user-scalable=no, width=device-width" />
-	<script>
- 		function BlockMove(event) {
-  			// Tell browser not to move window
-  			event.preventDefault() ;
-	 	}
-	</script>
-	<link rel="apple-touch-icon" href="./apple-touch-icon.png" />	
-	<style>
-		body {
-			margin: 0px ;
- 			padding: 0px ;
- 			color: #212121 ;
- 			font-family: Helvetica ;
- 			font-size: 14px ;
-		}
-		.button {
- 			font-family: Helvetica ;
- 			font-weight: bold ;
- 			padding: 15px; 
- 			border: 1px solid black ;
- 			-moz-border-radius: 8px ;
- 			-webkit-border-radius: 8px ; 
- 			margin-top: 10px ;
- 			margin-bottom: 10px ;
- 			background-color: white ;
-		}
-	</style>
-
-    <link href="css/index.css" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
-    <!-- If IE use the latest rendering engine -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <!-- calendar scripts -->
-    <link href="css/calendarview.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="prototype.js"></script>
-    <script type="text/javascript" src="calendarview.js"></script>
-    <script type="text/javascript">
-        window.onload = function() {
-            Calendar.setup({
-                dateField     : 'date',
-                parentElement : 'calendar'
-            })
-
-			showTable();
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <style>
+        p{
+            text-align:center;
+            border: 4px solid purple;
+            width:100%;
+            padding: 0;
+            margin:auto;
+            
         }
+       
+        th{
+            border: 4px solid pink;
+        }
+        td{
+            border: 4px solid yellow;
+        }
+        
+    </style>
 
-		function showTable(){
-			if(window.XMLHttpRequest){
-				// code for IE7+, Firefox, Chrome, Opera, Safari
-				xmlhttp = new XMLHttpRequest();
-			} else{
-				// code for IE6, IE5
-				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-
-			xmlhttp.onreadystatechange = function(){
-				if (this.readyState == 4 && this.status == 200){
-					document.getElementById("foodTable").innerHTML = this.responseText;
-				}
-			};
-			xmlhttp.open("POST", "getFood.php", true);
-			xmlhttp.send();
-		}
-
-		function sendFood(name, date){
-			if(window.XMLHttpRequest){
-				// code for IE7+, Firefox, Chrome, Opera, Safari
-				xmlhttp = new XMLHttpRequest();
-			} else{
-				// code for IE6, IE5
-				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-
-			xmlhttp.onreadystatechange = function(){
-				if (this.readyState == 4 && this.status == 200){
-					//successfully recieved response from server
-					showTable();
-					console.log("Data Received");
-				}
-			};
-			
-			var info = "name=" + name + "&exp_date=" + date;
-			
-			xmlhttp.open("POST", "fill_db.php", true);
-			xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-			xmlhttp.send(info);
-			console.log("Data Sent");
-		}
-		function editMode(){
-			if(window.XMLHttpRequest){
-				// code for IE7+, Firefox, Chrome, Opera, Safari
-				xmlhttp = new XMLHttpRequest();
-			} else{
-				// code for IE6, IE5
-				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-
-			xmlhttp.onreadystatechange = function(){
-				if (this.readyState == 4 && this.status == 200){
-					//successfully recieved response from server
-
-					var button = document.getElementById("editButton");
-					if(button.innerHTML == "Edit"){
-						button.innerHTML = "Save Changes";
-						document.getElementById("foodTable").innerHTML = this.responseText;
-						
-					}
-					else{
-						submitEdit();
-						
-					}
-				}
-			};
-
-			xmlhttp.open("POST", "editMode.php", true);
-			xmlhttp.send();
-		}
-		function submitEdit(){
-			if(window.XMLHttpRequest){
-				// code for IE7+, Firefox, Chrome, Opera, Safari
-				xmlhttp = new XMLHttpRequest();
-			} else{
-				// code for IE6, IE5
-				xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
-			}
-
-			xmlhttp.onreadystatechange = function(){
-				if (this.readyState == 4 && this.status == 200){
-					//successfully recieved response from server
-					
-					var table = document.getElementById("foodTable").firstChild;
-					console.log("ROWS: " + table.rows.length);
-						for(var x = 1; x < table.rows.length; x++){
-							
-							var name = table.rows[x].cells[1].firstChild.value;
-							var date = table.rows[x].cells[2].innerHTML;
-							var checked = table.rows[x].cells[3].firstChild.checked;
-							
-							if(checked == false){
-								sendFood(name, date);
-								console.log("added food! Checked is false");
-							}
-							
-						}
-						var button = document.getElementById("editButton");
-						button.innerHTML = "Edit";
-						showTable();
-				}
-					
-			};
-
-			xmlhttp.open("POST", "deleteTable.php", true);
-			xmlhttp.send();
-			console.log("deleting table");
-		}
-    </script>
-    <!-- Title of website -->
-    <title>Expiration</title>
 </head>
 
-<body ontouchmove="BlockMove(event);">
-    <!-- Title -->
-   <h1>EXPIRATION</h1>
+<body>
+    <div data-role="page" style="border: 4x solid blue; height: 100%;">
 
-   <form id="addFood" onSubmit='sendFood(document.getElementById("food").value, document.getElementById("date").value)'>
-      Food: <input type="text" size="21" maxlength="30" name="food" id="food"><br />
-      <br />
-      <!-- calendar -->
-      <div id="calendar"></div>
-      <input type="hidden" id="date" name="exp_date"/>
-      <br />
-      <input type="submit" name="submit" value="Submit"/>
-      <br />
-   </form>
+        <div data-role="header" style="border: 4px solid green; height: 10%;">
+            <h1>Expiration</h1>    
+        </div>
 
-	<div id="foodTable"></div>
-    <div id="ButtonEdit">
-	   <button id="editButton" onclick="editMode();">Edit</button>
+        <div data-role="main" class="ui-content" style="border: 4px solid red; height: 80%;">
+            <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="foodEntries">
+                <tbody>
+                    <tr>
+                        <td>Name</td>
+                        <td>Date</td>
+                    </tr>  
+                    <tr>
+                        <td>Name</td>
+                        <td>Date</td>
+                    </tr> 
+                    <tr>
+                        <td>Name</td>
+                        <td>Date</td>
+                    </tr>                       
+            </table>
+            
+            <p>Month</p>
+            <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="calendar">
+                <thead>
+                    <tr>
+                        <th>Sunday</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                        <td>7</td>
+                    </tr>                        
+            </table>
+            <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="foodEntries">
+                <tbody>
+                    <tr>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                    </tr> 
+                    <tr>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                    </tr>  
+                    <tr>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                    </tr>
+                     <tr>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                    </tr>  
+                     <tr>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                        <td>Food</td>
+                    </tr>     
+                                         
+            </table>
+            
+        </div>
+
+        <div data-role="footer" style="border: 4px solid teal; height: 10%;" >
+            <button class="ui-btn">Fruit</button>
+            <button class="ui-btn">Vegetables</button>
+            <button class="ui-btn">Meat</button>
+            <button class="ui-btn">Dairy</button>
+            <button class="ui-btn">Other</button>
+        </div>
+
     </div>
-    <!-- make button on bottom to send email JUST A TEST FEATURE NOW -->
-    <form action="sendEmail.php" method="post">
-        <input type="submit" value="Send Email">
-    </form>
-
-
 </body>
 
 </html>
