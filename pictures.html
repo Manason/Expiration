@@ -5,28 +5,22 @@
         <title>Picture Clicker</title>
         <script type="text/javascript">
         window.onload = function(){
-            fillImageTable("https://thumbs.dreamstime.com/t/sweet-small-orange-fruit-leaves-30218835.jpg",0);
-            fillImageTable("http://eathealthylivefit.com/wp-content/uploads/2013/02/apple-red-e1361844844713.jpg",2);
-            fillImageTable("https://www.organicfacts.net/wp-content/uploads/2013/05/Grapes11.jpg",0);
-            fillImageTable("https://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg",1);
+            fillImageTable(3,4);
         }
 
-        function fillImageTable(foodImage,x){
-            if(x === 2){
-                var table = document.getElementById("images");
-                var row = table.insertRow(1);
-                var row=document.getElementById("images").rows[1];
-                var x=row.insertCell(-1);
-                var img = document.createElement('img');
-                img.src = foodImage;
-                x.appendChild(img);
-            }
-            else{
-                var row=document.getElementById("images").rows[x];
-                var x=row.insertCell(-1);
-                var img = document.createElement('img');
-                img.src = foodImage;
-                x.appendChild(img);
+        function fillImageTable(_i,_j){
+            var foodItems = ["https://thumbs.dreamstime.com/t/sweet-small-orange-fruit-leaves-30218835.jpg",
+                             "http://eathealthylivefit.com/wp-content/uploads/2013/02/apple-red-e1361844844713.jpg",
+                             "https://www.organicfacts.net/wp-content/uploads/2013/05/Grapes11.jpg",
+                             "https://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg"];
+            for(var i = 0; i < _i; i++){
+                for(var j = 0; j < _j; j++){
+                    var row=document.getElementById("images").rows[i];
+                    var x=row.insertCell(-1);
+                    var img = document.createElement('img');
+                    img.src = foodItems[Math.floor(Math.random() * foodItems.length)];
+                    x.appendChild(img);
+                }
             }
         }
 
@@ -41,6 +35,7 @@
     <body>
         <!-- <img src="https://d3nevzfk7ii3be.cloudfront.net/igi/jqpEoyoKfwdbPnj2.huge"id="orange"/> -->
         <table id="images" border="1 px solid"s>
+            <tr></tr>
             <tr></tr>
             <tr></tr>
         </table>
