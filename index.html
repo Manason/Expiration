@@ -5,48 +5,33 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    
+
     <style>
-       
+
         #header-text{
             font-weight: bold;
             font-size: 7vmin;
             padding: 1%;
-            
+
             margin: 0;
-            
+
         }
-        
-       
-        td{
-            border: 4px solid yellow;
-        }
-        #foodEntries{
-            height:24%;
-        }
-        #foodEntries.td{
-            height:33%;
-            width:40%;
-        }
-        .entry-image{
-            width:20%;
-        }
-        
+
         #calendar{
             max-height:16%;
             margin:0;
             width:100%;
-            
+
         }
         p{
             text-align:center;
-            
+
             width:100%;
             padding: 0;
             margin:auto;
             font-weight: bold;
             font-size:5vmin;
-            
+
         }
         #calendar th{
             border: 2px solid darkgreen;
@@ -55,9 +40,9 @@
             text-align:center;
             width:14%;
             font-size:2vmin;
-            
-            
-           
+
+
+
         }
         #calendar td{
             padding: 0;
@@ -65,18 +50,18 @@
             text-align:center;
             width:14%;
             font-size:5vmin;
-        }     
+        }
         #calendar td:hover{
             color:white;
             background-color:darkgreen;
-            
+
         }
-           
-        
+
+
         #foodTable{
             height:24%;
         }
-        
+
     </style>
 
 </head>
@@ -85,30 +70,12 @@
     <div data-role="page" style="border: 4x solid blue; height: 100vw; width: 100vw;">
 
         <div data-role="header" style="border: 4px solid green; max-height: 10%;">
-            <h1 id="header-text">Expiration</h1>    
+            <h1 id="header-text">Expiration</h1>
         </div>
 
         <div data-role="main" class="ui-content" style="border: 4px solid red; height: 80%; margin: 0; padding: 0;">
-            
-            <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="foodEntries">
-                <tbody>
-                    <tr>
-                        <td class="entry-image">Image</td>
-                        <td>Name</td>
-                        <td>Date</td>
-                    </tr>  
-                    <tr>
-                        <td class="entry-image">Image</td>
-                        <td>Name</td>
-                        <td>Date</td>
-                    </tr> 
-                    <tr>
-                        <td class="entry-image">Image</td>
-                        <td>Name</td>
-                        <td>Date</td>
-                    </tr>                       
-            </table>
-            
+
+
             <div id="calendar">
             <p>April</p>
             <table data-role="table" data-mode="columntoggle:none" class="ui-responsive">
@@ -132,7 +99,7 @@
                         <td>5</td>
                         <td>6</td>
                         <td>7</td>
-                    </tr>                        
+                    </tr>
             </table>
             </div>
             <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="foodTable">
@@ -143,14 +110,14 @@
                         <td>Food</td>
                         <td>Food</td>
                         <td>Food</td>
-                    </tr> 
+                    </tr>
                     <tr>
                         <td>Food</td>
                         <td>Food</td>
                         <td>Food</td>
                         <td>Food</td>
                         <td>Food</td>
-                    </tr>  
+                    </tr>
                     <tr>
                         <td>Food</td>
                         <td>Food</td>
@@ -164,17 +131,17 @@
                         <td>Food</td>
                         <td>Food</td>
                         <td>Food</td>
-                    </tr>  
+                    </tr>
                      <tr>
                         <td>Food</td>
                         <td>Food</td>
                         <td>Food</td>
                         <td>Food</td>
                         <td>Food</td>
-                    </tr>     
-                                         
+                    </tr>
+
             </table>
-            
+
         </div>
 
         <div data-role="footer" style="border: 4px solid teal; height: 10%;" >
@@ -182,7 +149,7 @@
             <button class="ui-btn">Vegetables</button>
             <button class="ui-btn">Meat</button>
             <button class="ui-btn">Dairy</button>
-            
+
         </div>
 
     </div>
