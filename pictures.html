@@ -5,17 +5,19 @@
         <title>Picture Clicker</title>
         <script type="text/javascript">
         window.onload = function(){
-            fillImageTable(3,4);
+            fillImageTable(3,6);
         }
 
         function fillImageTable(_i,_j){
             var foodItems = ["https://thumbs.dreamstime.com/t/sweet-small-orange-fruit-leaves-30218835.jpg",
                              "http://eathealthylivefit.com/wp-content/uploads/2013/02/apple-red-e1361844844713.jpg",
                              "https://www.organicfacts.net/wp-content/uploads/2013/05/Grapes11.jpg",
-                             "https://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg"];
+                             "https://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg",
+                             "https://upload.wikimedia.org/wikipedia/commons/d/de/FraiseFruitPhoto.jpg",
+                             "http://www.pngmart.com/files/1/Eggplant-PNG-Photos.png"];
             for(var i = 0; i < _i; i++){
                 for(var j = 0; j < _j; j++){
-                    var row=document.getElementById("images").rows[i];
+                    var row=document.getElementById("foodTable").rows[i];
                     var x=row.insertCell(-1);
                     var img = document.createElement('img');
                     img.src = foodItems[Math.floor(Math.random() * foodItems.length)];
@@ -27,9 +29,18 @@
         </script>
         <style>
             table img{
-                width: 200px;
-                height: 200px;
+                width: 100px;
+                height: 100px;
             }
+
+            table img:hover{
+                opacity: .5;
+            }
+
+            td{
+                border: 2px solid purple;
+            }
+
 
             #foodTable{
                 height:24%;
@@ -42,9 +53,6 @@
                 <tr></tr>
                 <tr></tr>
                 <tr></tr>
-                <tr></tr>
-                <tr></tr>
-
         </table>
     </body>
 </html>
