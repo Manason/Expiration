@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
+    
     <style>
 
         #header-text{
@@ -23,7 +23,7 @@
             width:100%;
 
         }
-        p{
+        #month-text{
             text-align:center;
 
             width:100%;
@@ -61,7 +61,36 @@
 
 
     </style>
+    
+    <script>
+        window.onload = function(){
+            var today = new Date(Date.now());
 
+            var date = new Date( //get the date of Sunday
+                today.getFullYear(),
+                today.getMonth(),
+                (today.getDate()-today.getDay())
+            );
+
+            setCalendar(date);
+        }
+        function setCalendar(sundayDate){
+             var date = sundayDate;
+
+            var calendarTable = document.getElementById("calendar-table");
+            for(x = 0; x < 7; x++){
+                
+                calendarTable.rows[1].cells[x].innerHTML = date.getDate();
+                date.setDate(date.getDate()+1);
+            
+            }
+            document.getElementById("month-text").innerHTML = sundayDate.getMonth();
+        }
+        
+
+        
+        
+    </script>
 </head>
 
 <body>
@@ -75,8 +104,8 @@
 
 
             <div id="calendar">
-            <p>April</p>
-            <table data-role="table" data-mode="columntoggle:none" class="ui-responsive">
+            <p id="month-text">Month</p>
+            <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="calendar-table">
                 <thead>
                     <tr>
                         <th>Sunday</th>
