@@ -63,6 +63,7 @@
     </style>
     
     <script>
+        monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
         window.onload = function(){
             var today = new Date(Date.now());
 
@@ -84,7 +85,7 @@
                 date.setDate(date.getDate()+1);
             
             }
-            document.getElementById("month-text").innerHTML = sundayDate.getMonth();
+            document.getElementById("month-text").innerHTML = monthNames[sundayDate.getMonth()];
         }
         
 
