@@ -5,29 +5,50 @@
         <title>Picture Clicker</title>
         <script type="text/javascript">
         window.onload = function(){
-            fillImageTable(3,6);
+            fillImageTable(4,20);
         }
 
         function fillImageTable(_i,_j){
-            var foodItems = ["https://thumbs.dreamstime.com/t/sweet-small-orange-fruit-leaves-30218835.jpg",
-                             "http://eathealthylivefit.com/wp-content/uploads/2013/02/apple-red-e1361844844713.jpg",
-                             "https://www.organicfacts.net/wp-content/uploads/2013/05/Grapes11.jpg",
-                             "https://saltmarshrunning.com/wp-content/uploads/2014/09/bananasf.jpg",
-                             "https://upload.wikimedia.org/wikipedia/commons/d/de/FraiseFruitPhoto.jpg",
-                             "http://www.pngmart.com/files/1/Eggplant-PNG-Photos.png"];
+            var foodItems = ["pictures/apple.png", "pictures/banana.png",
+                            "pictures/cherries.jpg", "pictures/eggplant.png",
+                            "pictures/grapes.png", "pictures/strawberry.png"];
             for(var i = 0; i < _i; i++){
                 for(var j = 0; j < _j; j++){
                     var row=document.getElementById("foodTable").rows[i];
                     var x=row.insertCell(-1);
                     var img = document.createElement('img');
-                    img.src = foodItems[Math.floor(Math.random() * foodItems.length)];
+                    var choice = foodItems[Math.floor(Math.random() * foodItems.length)];
+                    var splitter = choice.split("/",2);
+                    img.name = splitter[1].slice(0, -4);
+                    img.src = choice
+                    img.onclick = function(){tableText(this);}
                     x.appendChild(img);
                 }
             }
         }
 
+        function onClick(){
+            var table = document.getElementById("foodTable");
+            if (table != null) {
+                for (var i = 0; i < table.rows.length; i++) {
+                    for (var j = 0; j < table.rows[i].cells.length; j++)
+                    table.rows[i].cells[j].onclick = function () {
+                        tableText(this);
+                    };
+                }
+            }
+        }
+
+        function tableText(tableCell) {
+            console.log(tableCell.name);
+        }
+
         </script>
         <style>
+            .foodPictures{
+                width: 100;
+                overflow: scroll;
+            }
             table img{
                 width: 100px;
                 height: 100px;
@@ -40,19 +61,20 @@
             td{
                 border: 2px solid purple;
             }
-
-
             #foodTable{
                 height:24%;
             }
         </style>
     </head>
     <body>
-        <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="foodTable">
-            <tbody>
-                <tr></tr>
-                <tr></tr>
-                <tr></tr>
-        </table>
+        <div class="foodPictures">
+            <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="foodTable">
+                <tbody>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+            </table>
+        </div>
     </body>
 </html>
