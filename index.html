@@ -5,14 +5,17 @@
     <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-    
-    <style>
 
+    <style>
+        td{
+            user-select:none;
+            cursor: default;
+        }
         #header-text{
             font-weight: bold;
             font-size: 7vmin;
             padding: 1%;
-
+            background-color: olivedrab;
             margin: 0;
 
         }
@@ -21,11 +24,9 @@
             max-height:16%;
             margin:0;
             width:100%;
-
+            border-top: 2px solid black;
         }
         #prevWeek{
-            
-            
             width:5%;
             display:block;
             float:left;
@@ -36,21 +37,21 @@
             width:5%;
             display:block;
             float:right;
-            
+
             margin:0;
             padding:0;
-            
+
         }
         #month-text{
             display:block;
             float:left;
             text-align:center;
-           
+
             width:80%;
             position:relative;
             left:5%;
-           padding:0;
-           
+            padding:0;
+
             margin:auto;
             font-weight: bold;
             font-size:5vmin;
@@ -63,9 +64,6 @@
             text-align:center;
             width:14%;
             font-size:2vmin;
-
-
-
         }
         #calendar td{
             padding: 0;
@@ -74,16 +72,31 @@
             width:14%;
             font-size:5vmin;
         }
-      
 
+        /*food pictures table*/
+        .foodPictures{
+            width: 100;
+            overflow: scroll;
+            overflow-y:hidden;
+            height: 40vmin;
+            background-color: wheat;
+        }
+
+        #foodTable img{
+            height: 5vw;
+        }
+
+        #foodTable img:hover{
+            opacity: .5;
+        }
 
 
 
     </style>
-    
+
     <script>
         monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        
+
         window.onload = function(){
             today = new Date(Date.now()); //today's date
             selectedObject = null; //stores the HTML TD element that represents the selected date
@@ -94,7 +107,7 @@
                 (today.getDate()-today.getDay())
             );
             setCalendar(newDate);
-            
+            fillImageTable(4,20);
         }
 
         /*
@@ -105,10 +118,10 @@
 
             var calendarTable = document.getElementById("calendar-table");
             for(x = 0; x < 7; x++){
-                
+
                 calendarTable.rows[1].cells[x].innerHTML = sundayDate.getDate();
                 sundayDate.setDate(sundayDate.getDate()+1);
-            
+
             }
             sundayDate.setDate(sundayDate.getDate()-7);
             document.getElementById("month-text").innerHTML = monthNames[sundayDate.getMonth()];
@@ -152,22 +165,55 @@
             day.style.color = "white";
            document.getElementById("month-text").innerHTML = monthNames[selectedDate.getMonth()];
         }
-        
-        
 
-        
-        
+
+        // pictues.html javascript
+        function fillImageTable(_i,_j){
+            var foodItems = ["pictures/apple.png", "pictures/banana.png",
+                            "pictures/cherries.jpg", "pictures/eggplant.png",
+                            "pictures/grapes.png", "pictures/strawberry.png"];
+            for(var i = 0; i < _i; i++){
+                for(var j = 0; j < _j; j++){
+                    var row=document.getElementById("foodTable").rows[i];
+                    var x=row.insertCell(-1);
+                    var img = document.createElement('img');
+                    var choice = foodItems[Math.floor(Math.random() * foodItems.length)];
+                    var splitter = choice.split("/",2);
+                    img.name = splitter[1].slice(0, -4);
+                    img.src = choice
+                    img.onclick = function(){tableText(this);}
+                    x.appendChild(img);
+                }
+            }
+        }
+
+        function onClick(){
+            var table = document.getElementById("foodTable");
+            if (table != null) {
+                for (var i = 0; i < table.rows.length; i++) {
+                    for (var j = 0; j < table.rows[i].cells.length; j++)
+                    table.rows[i].cells[j].onclick = function () {
+                        tableText(this);
+                    };
+                }
+            }
+        }
+
+        function tableText(tableCell) {
+            console.log(tableCell.name);
+        }
+
     </script>
 </head>
 
 <body>
     <div data-role="page" style="border: 4x solid blue; height: 100vw; width: 100vw;">
 
-        <div data-role="header" style="border: 4px solid green; max-height: 10%;">
+        <div data-role="header" style="max-height: 10%;">
             <h1 id="header-text">Expiration</h1>
         </div>
 
-        <div data-role="main" class="ui-content" style="border: 4px solid red; height: 80%; margin: 0; padding: 0;">
+        <div data-role="main" class="ui-content" style="height: 80%; margin: 0; padding: 0;">
 
 
             <div id="calendar">
@@ -199,9 +245,20 @@
             </table>
             </div>
 
+            <!-- food pictures -->
+            <div class="foodPictures">
+                <table data-role="table" data-mode="columntoggle:none" class="ui-responsive" id="foodTable">
+                    <tbody>
+                        <tr class="food-icon"></tr>
+                        <tr class="food-icon"></tr>
+                        <tr class="food-icon"></tr>
+                        <tr class="food-icon"></tr>
+                </table>
+            </div>
+
         </div>
 
-        <div data-role="footer" style="border: 4px solid teal; height: 10%;" >
+        <div data-role="footer" style="height: 10%;" >
             <button class="ui-btn">Fruit</button>
             <button class="ui-btn">Vegetables</button>
             <button class="ui-btn">Meat</button>
