@@ -1,0 +1,125 @@
+td{
+    user-select:none;
+    cursor: default;
+}
+#header-text{
+    font-weight: bold;
+    font-size: 7vmin;
+    padding: 1%;
+    background-color: olivedrab;
+    margin: 0;
+
+}
+
+#calendar{
+    max-height:16%;
+    margin:0;
+    width:100%;
+    border-top: 2px solid black;
+}
+#prevWeek{
+    width:5%;
+    display:block;
+    float:left;
+    margin:0;
+    padding:0;
+}
+#nextWeek{
+    width:5%;
+    display:block;
+    float:right;
+
+    margin:0;
+    padding:0;
+
+}
+#month-text{
+    display:block;
+    float:left;
+    text-align:center;
+
+    width:80%;
+    position:relative;
+    left:5%;
+    padding:0;
+
+    margin:auto;
+    font-weight: bold;
+    font-size:5vmin;
+
+}
+#calendar th{
+    border: 2px solid darkgreen;
+    background-color: lightgray;
+    padding: 0;
+    text-align:center;
+    width:14%;
+    font-size:2vmin;
+}
+#calendar td{
+    padding: 0;
+    border: 3px solid darkgreen;
+    text-align:center;
+    width:14%;
+    font-size:5vmin;
+}
+
+/*food pictures table*/
+.foodPictures{
+    width: 100;
+    overflow: scroll;
+    overflow-y:hidden;
+    height: 40vmin;
+    background-color: wheat;
+}
+
+#foodTable img{
+    height: 5vw;
+}
+
+#foodTable img:hover{
+    opacity: .5;
+}
+
+/*entries stuff*/
+#food-entry-container{
+    border: 4px solid red;
+
+
+}
+.food-entry{
+    border: 4px solid purple;
+    text-align:center;
+    margin:0;
+    padding:0;
+
+    margin:0 30% 0 30%;
+}
+.food-entry-image{
+    width:25px;
+    height:25px;
+    border: 4px solid blue;
+    display:inline-block;
+    margin:0;
+    padding:0;
+    float:left;
+
+}
+.food-entry-name{
+    display:inline-block;
+    margin:0;
+    padding:0;
+    border: 4px solid yellow;
+    font-size:20px;
+    padding:5px 10px 5px 0;
+
+}
+.food-entry-date{
+    display:inline-block;
+    margin:0;
+    padding:0;
+    border: 4px solid teal;
+    font-size:20px;
+
+
+}
